@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=60", "setuptools-scm>=8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VNP21A1D-002"
+version = "1.0.0"
+description = "VIIRS/NPP Land Surface Temperature/Emissivity Daily L3 Global 1 km SIN Grid Day Search and Download Utility"
+readme = "README.md"
+authors = [
+    { name = "Gregory H. Halverson", email = "gregory.h.halverson@jpl.nasa.gov" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "modland",
+    "rasters",
+    "requests",
+    "sentinel-tiles"
+]
+
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+]
+
+[tool.setuptools.package-data]
+VNP21A1D_002 = ["*.txt"]
+
+[project.urls]
+"Homepage" = "https://github.com/ET-Toolbox/VNP21A1D-002"
+
+[tool.setuptools.packages.find]
+include = ["VNP21A1D_002"]
+exclude = ["data", "build", "tests"]

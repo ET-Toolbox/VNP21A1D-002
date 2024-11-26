@@ -1,0 +1,161 @@
+{
+  "feed": {
+    "updated": "2024-11-25T18:45:30.616Z",
+    "id": "https://cmr.earthdata.nasa.gov:443/search/granules.json?concept_id=C2545314555-LPCLOUD&bounding_box=-115.97358593234311%2C35.00000000000101%2C-115.97358593234311%2C35.00000000000101&temporal=2024-11-11T00%3A00%3A00Z%2C2024-11-11T23%3A59%3A59Z&page_size=2000",
+    "title": "ECHO granule metadata",
+    "entry": [
+      {
+        "producer_granule_id": "VNP21A1D.A2024316.h08v05.002.2024320160736",
+        "time_start": "2024-11-11T00:00:00.000Z",
+        "updated": "2024-11-15T10:17:20.614Z",
+        "dataset_id": "VIIRS/NPP Land Surface Temperature/Emissivity Daily L3 Global 1km SIN Grid Day V002",
+        "data_center": "LPCLOUD",
+        "title": "VNP21A1D.A2024316.h08v05.002.2024320160736",
+        "coordinate_system": "GEODETIC",
+        "day_night_flag": "BOTH",
+        "time_end": "2024-11-11T23:59:59.000Z",
+        "id": "G3296774315-LPCLOUD",
+        "original_format": "ECHO10",
+        "granule_size": "2.3955039978027344",
+        "browse_flag": true,
+        "polygons": [
+          [
+            "29.8308 -115.3696 29.9063 -103.6998 40.0852 -117.3606 40 -130.5407 29.8308 -115.3696"
+          ]
+        ],
+        "collection_concept_id": "C2545314555-LPCLOUD",
+        "online_access_flag": true,
+        "links": [
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+            "title": "Download VNP21A1D.A2024316.h08v05.002.2024320160736.h5",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.h5"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/s3#",
+            "title": "This link provides direct download access via S3 to the granule",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.h5"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "type": "text/html",
+            "title": "The Landing Page for this file may be accessed directly from this link (DOI)",
+            "hreflang": "en-US",
+            "href": "https://doi.org/10.5067/VIIRS/VNP21A1D.002"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+            "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+            "hreflang": "en-US",
+            "href": "https://opendap.earthdata.nasa.gov/collections/C2545314555-LPCLOUD/granules/VNP21A1D.A2024316.h08v05.002.2024320160736"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "Download VNP21A1D.A2024316.h08v05.002.2024320160736.cmr.xml (EXTENDED METADATA)",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.cmr.xml"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "Download VNP21A1D.A2024316.h08v05.002.2024320160736.h5.dmrpp (VIEW RELATED INFORMATION)",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.h5.dmrpp"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.cmr.xml"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "This link provides direct download access via S3 to the granule (VIEW RELATED INFORMATION)",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-protected/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/VNP21A1D.A2024316.h08v05.002.2024320160736.h5.dmrpp"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+            "title": "Download BROWSE.VNP21A1D.A2024316.h08v05.002.2024320160736.1.jpg",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/BROWSE.VNP21A1D.A2024316.h08v05.002.2024320160736.1.jpg"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+            "title": "This link provides direct download access via S3 to the granule",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-public/VNP21A1D.002/VNP21A1D.A2024316.h08v05.002.2024320160736/BROWSE.VNP21A1D.A2024316.h08v05.002.2024320160736.1.jpg"
+          },
+          {
+            "inherited": true,
+            "length": "976.3KB",
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+            "hreflang": "en-US",
+            "href": "https://search.earthdata.nasa.gov/search?q=C2545314555-LPCLOUD"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://landweb.modaps.eosdis.nasa.gov/cgi-bin/QS/new/index.cgi"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "hreflang": "en-US",
+            "href": "https://doi.org/10.5067/VIIRS/VNP21A1D.002"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "hreflang": "en-US",
+            "href": "https://lpdaac.usgs.gov/"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://lpdaac.usgs.gov/documents/1662/VNP21_User_Guide_V2.pdf"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://lpdaac.usgs.gov/documents/1332/VNP21_ATBD_V1.pdf"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://viirsland.gsfc.nasa.gov/Val/LST_Val.html"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://viirsland.gsfc.nasa.gov/Val_overview.html"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/VIIRS/2/VNP21A1D"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+            "hreflang": "en-US",
+            "href": "https://appeears.earthdatacloud.nasa.gov/"
+          }
+        ]
+      }
+    ]
+  }
+}
