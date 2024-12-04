@@ -1,6 +1,6 @@
 {
   "feed": {
-    "updated": "2024-11-25T18:45:30.616Z",
+    "updated": "2024-12-04T21:28:37.935Z",
     "id": "https://cmr.earthdata.nasa.gov:443/search/granules.json?concept_id=C2545314555-LPCLOUD&bounding_box=-115.97358593234311%2C35.00000000000101%2C-115.97358593234311%2C35.00000000000101&temporal=2024-11-11T00%3A00%3A00Z%2C2024-11-11T23%3A59%3A59Z&page_size=2000",
     "title": "ECHO granule metadata",
     "entry": [
