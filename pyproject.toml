@@ -15,6 +15,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "colored-logging",
     "modland",
     "rasters",
     "requests",
