@@ -20,7 +20,7 @@ from modland import parsehv, generate_modland_grid
 
 from rasters import Raster, RasterGrid, RasterGeometry
 
-from .VIIRS_filename_parsing import *
+from VIIRS_tiled_granules import VIIRSTiledGranule
 
 # Define colormaps for NDVI and Albedo
 NDVI_COLORMAP = LinearSegmentedColormap.from_list(
@@ -41,118 +41,24 @@ DEFAULT_WORKING_DIRECTORY = "."
 
 logger = logging.getLogger(__name__)
 
-class VIIRSGranule:
-    """
-    Class representing a VIIRS Granule.
-    """
-    CLOUD_DATASET_NAME = "HDFEOS/GRIDS/VNP_Grid_1km_2D/Data Fields/SurfReflect_QF1_1"
-
-    def __init__(self, filename: str):
-        """
-        Initialize the VIIRSGranule object.
-
-        :param filename: Path to the VIIRS granule file.
-        """
-        self._filename = filename
-        self._cloud_mask = None
-
-    def __repr__(self):
-        """
-        Return a string representation of the VIIRSGranule object.
-        """
-        display_dict = {
-            "filename": self.filename
-        }
-
-        display_string = json.dumps(display_dict, indent=2)
-
-        return display_string
-
-    @property
-    def filename(self):
-        """
-        Return the filename of the granule.
-        """
-        return self._filename
-    
-    @property
-    def filename_absolute(self):
-        """
-        Return the absolute path of the filename.
-        """
-        return abspath(expanduser(self.filename))
-
-    @property
-    def filename_base(self):
-        """
-        Return the base name of the filename.
-        """
-        return basename(self.filename)
-
-    @property
-    def filename_stem(self) -> str:
-        """
-        Return the stem of the filename.
-        """
-        return splitext(self.filename_base)[0]
-
-    @property
-    def tile(self):
-        """
-        Return the tile information from the filename.
-        """
-        return parse_VIIRS_tile(self.filename)
-
-    @property
-    def hv(self):
-        """
-        Return the horizontal and vertical tile indices.
-        """
-        return parsehv(self.tile)
-
-    @property
-    def h(self):
-        """
-        Return the horizontal tile index.
-        """
-        return self.hv[0]
-
-    @property
-    def v(self):
-        """
-        Return the vertical tile index.
-        """
-        return self.hv[1]
-
-    @property
-    def date_UTC(self):
-        """
-        Return the date in UTC from the filename.
-        """
-        return datetime.strptime(self.filename_base.split(".")[1][1:], "%Y%j")
-
-    @property
-    def grids(self) -> List[str]:
-        """
-        Return the list of grids in the HDF5 file.
-        """
-        with h5py.File(self.filename_absolute, "r") as file:
-            return list(file["HDFEOS/GRIDS/"].keys())
-
-    def variables(self, grid: str) -> List[str]:
-        """
-        Return the list of variables in a specific grid.
-
-        :param grid: The grid name.
-        """
-        with h5py.File(self.filename_absolute, "r") as file:
-            return list(file[f"HDFEOS/GRIDS/{grid}/Data Fields/"].keys())
-
-class VNP21A1DGranule(VIIRSGranule):
+class VNP21A1DGranule(VIIRSTiledGranule):
     """
     Class representing a VNP21A1D Granule, inheriting from VIIRSGranule.
     """
     CLOUD_DATASET_NAME = "HDFEOS/GRIDS/VNP_Grid_1km_2D/Data Fields/SurfReflect_QF1_1"
+
+    def __init__(self, filename: Union[str, VIIRSTiledGranule]):
+        """
+        Initialize the VNP21A1DGranule object.
+
+        :param filename: The filename of the granule.
+        """
+        if isinstance(filename, VIIRSTiledGranule):
+            super().__init__(filename.filename)
+        elif isinstance(filename, str):
+            super().__init__(filename)
+        else:
+            raise ValueError("no valid granule filename given")
 
     def get_QC(self, geometry: RasterGeometry = None, resampling: str = "nearest") -> Raster:
         """
