@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "VNP21A1D-002"
-version = "1.0.1"
+version = "1.0.2"
 description = "VIIRS/NPP Land Surface Temperature/Emissivity Daily L3 Global 1 km SIN Grid Day Search and Download Utility"
 readme = "README.md"
 authors = [
