@@ -16,7 +16,9 @@ classifiers = [
 ]
 dependencies = [
     "colored-logging",
-    "modland",
+    "earthaccess",
+    "modland>=1.1.0",
+    "python-dateutil",
     "rasters",
     "requests",
     "sentinel-tiles"
