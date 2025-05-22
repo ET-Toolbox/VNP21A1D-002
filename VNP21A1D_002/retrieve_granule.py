@@ -6,6 +6,9 @@ import VIIRS_tiled_granules
 from .constants import VNP21A1D_002_CONCEPT_ID
 from .VNP21A1D_granule import VNP21A1DGranule
 
+class GranuleNotFoundError(Exception):
+    pass
+
 def retrieve_granule(
         date_UTC: Union[date, str] = None,
         tile: str = None,
@@ -20,7 +23,7 @@ def retrieve_granule(
     )
 
     if len(remote_granules) == 0:
-        raise ValueError("no VNP21A1D.002 granules found at tile {tile} on date {date_UTC}")
+        raise GranuleNotFoundError(f"no VNP21A1D.002 granules found at tile {tile} on date {date_UTC}")
 
     remote_granule = remote_granules[0]
 
