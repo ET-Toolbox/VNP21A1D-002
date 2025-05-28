@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "VNP21A1D-002"
-version = "1.0.3"
+version = "1.1.0"
 description = "VIIRS/NPP Land Surface Temperature/Emissivity Daily L3 Global 1 km SIN Grid Day Search and Download Utility"
 readme = "README.md"
 authors = [
@@ -19,7 +19,7 @@ dependencies = [
     "earthaccess",
     "modland>=1.1.0",
     "python-dateutil",
-    "rasters",
+    "rasters>=1.6.0",
     "VIIRS-Tiled-Granules>=1.0.3"
 ]
 
