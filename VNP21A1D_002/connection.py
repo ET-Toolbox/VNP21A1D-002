@@ -6,32 +6,24 @@ import earthaccess
 import rasters as rt
 from rasters import SpatialGeometry, RasterGeometry, Raster
 
+from VIIRS_tiled_granules import VIIRSTiledProductConnection
+
 from .constants import *
 from .search_granules import search_granules
 from .retrieve_granule import retrieve_granule
 from .VNP21A1D_granule import VNP21A1DGranule
 
-class VNP21A1D:
+class VNP21A1D(VIIRSTiledProductConnection):
+    GranuleClass = VNP21A1DGranule
+
     def __init__(
             self,
             download_directory: str = DOWNLOAD_DIRECTORY):
-        self.download_directory = download_directory
-    
-    def search(
-            self,
-            date_UTC: Union[date, datetime, str] = None,
-            start_date: Union[date, datetime, str] = None,
-            end_date: Union[date, datetime, str] = None,
-            target_geometry: SpatialGeometry = None,
-            tile: str = None) -> List[earthaccess.search.DataGranule]:
-        return search_granules(
-            date_UTC=date_UTC,
-            start_date=start_date,
-            end_date=end_date,
-            target_geometry=target_geometry,
-            tile=tile
+        super().__init__(
+            concept_ID=VNP21A1D_002_CONCEPT_ID,
+            download_directory=download_directory
         )
-    
+
     def granule(
             self,
             date_UTC: Union[date, str] = None,
@@ -43,15 +35,26 @@ class VNP21A1D:
             download_directory=download_directory
         )
     
-    def ST_K(
+    def variable(
             self,
+            variable: str,
             date_UTC: Union[date, str],
-            geometry: RasterGeometry,
+            geometry: RasterGeometry = None,
+            tile: str = None,
+            tile_size: int = None,
             filename: str = None,
             resampling: str = None) -> Raster:
+        if geometry is None and tile_size is None:
+            raise ValueError("neither geometry nor tile size given")
+
+        if geometry is None:
+            geometry = generate_modland_grid(tile=tile, tile_size=tile_size)
+
         remote_granules = self.search(
             date_UTC=date_UTC,
-            target_geometry=geometry
+            geometry=geometry,
+            tile=tile,
+            tile_size=tile_size
         )
 
         granules = [
@@ -61,12 +64,11 @@ class VNP21A1D:
         ]
 
         images = [
-            granule.ST_K
+            granule.variable(variable)
             for granule 
             in granules
         ]
 
-        # TODO rasters mosaic needs to accept resampling method
         mosaic = rt.mosaic(
             images=images,
             geometry=geometry,
@@ -74,20 +76,115 @@ class VNP21A1D:
         )
 
         return mosaic
-
+    
+    def ST_K(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="ST_K",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
     def ST_C(
             self,
             date_UTC: Union[date, str],
             geometry: RasterGeometry,
             filename: str = None,
             resampling: str = None) -> Raster:
-        ST_K = self.ST_K(
+        return self.variable(
+            variable="ST_C",
             date_UTC=date_UTC,
             geometry=geometry,
             filename=filename,
             resampling=resampling
         )
-
-        ST_C = ST_K - 273.15
-
-        return ST_C
+    
+    def QC(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="QC",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
+    def cloud(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="cloud",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
+    def Emis_14(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="Emis_14",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
+    def Emis_15(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="Emis_15",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
+    def Emis_16(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="Emis_16",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
+    
+    def view_angle(
+            self,
+            date_UTC: Union[date, str],
+            geometry: RasterGeometry,
+            filename: str = None,
+            resampling: str = None) -> Raster:
+        return self.variable(
+            variable="View_Angle",
+            date_UTC=date_UTC,
+            geometry=geometry,
+            filename=filename,
+            resampling=resampling
+        )
