@@ -4,7 +4,7 @@ import earthaccess
 
 import VIIRS_tiled_granules
 
-from .constants import VNP21A1D_002_CONCEPT_ID
+from .constants import *
 from .VNP21A1D_granule import VNP21A1DGranule
 
 class GranuleNotFoundError(Exception):
