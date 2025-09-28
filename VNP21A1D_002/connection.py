@@ -41,7 +41,7 @@ class VNP21A1D(VIIRSTiledProductConnection):
             date_UTC: Union[date, str],
             geometry: RasterGeometry = None,
             tile: str = None,
-            tile_size: int = None,
+            tile_size: int = 1200,
             filename: str = None,
             resampling: str = None) -> Raster:
         if geometry is None and tile_size is None:

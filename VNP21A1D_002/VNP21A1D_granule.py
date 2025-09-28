@@ -330,8 +330,6 @@ class VNP21A1DGranule(VIIRSTiledGranule):
     View_Angle = property(get_View_Angle)
 
     def variable(self, variable: str) -> Raster:
-        # if variable == "ST_K":
-        #     return self.ST_K
         if hasattr(self, variable):
             return getattr(self, variable)
         else:
