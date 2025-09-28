@@ -13,7 +13,7 @@ def search_granules(
         date_UTC: Union[date, str] = None,
         start_date_UTC: Union[date, str] = None,
         end_date_UTC: Union[date, str] = None,
-        target_geometry: Union[Point, Polygon, RasterGeometry] = None,
+        geometry: Union[Point, Polygon, RasterGeometry] = None,
         tile: str = None,
         concept_ID: str = VNP21A1D_002_CONCEPT_ID) -> List[earthaccess.search.DataGranule]:
     """
@@ -35,6 +35,7 @@ def search_granules(
         date_UTC=date_UTC,
         start_date_UTC=start_date_UTC,
         end_date_UTC=end_date_UTC,
-        target_geometry=target_geometry,
-        tile=tile
+        geometry=geometry,
+        tile=tile,
+        tile_size=1200
     )
