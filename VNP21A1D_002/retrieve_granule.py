@@ -4,7 +4,7 @@ import earthaccess
 
 import VIIRS_tiled_granules
 
-from .constants import VNP21A1D_002_CONCEPT_ID
+from .constants import *
 from .VNP21A1D_granule import VNP21A1DGranule
 
 class GranuleNotFoundError(Exception):
@@ -14,7 +14,7 @@ def retrieve_granule(
         remote_granule: earthaccess.search.DataGranule = None,
         date_UTC: Union[date, str] = None,
         tile: str = None,
-        download_directory: str = ".",
+        download_directory: str = DOWNLOAD_DIRECTORY,
         parent_directory: str = None,
         concept_ID: str = VNP21A1D_002_CONCEPT_ID) -> VNP21A1DGranule:
     if remote_granule is None:
